@@ -1,10 +1,6 @@
 
 #  1. TypeScript Union and Intersection Types
 
-This README provides a brief explanation of **union** and **intersection** types in TypeScript, along with practical code examples.
-
----
-
 ## What are Union Types?
 
 A **union type** allows a variable to be one of several types. You define union types using the pipe (`|`) symbol.
@@ -94,10 +90,6 @@ printId(101);
 
 
 #  2. TypeScript `keyof` Keyword
-
-This document explains the purpose and usage of the `keyof` keyword in TypeScript, along with practical examples.
-
----
 
 ## What is `keyof`?
 
