@@ -90,5 +90,74 @@ printId(101);
 
 - **Union types (`|`)** allow a value to be one of multiple types.
 - **Intersection types (`&`)** combine multiple types into one with all their properties.
+  
+
+
+#  2. TypeScript `keyof` Keyword
+
+This document explains the purpose and usage of the `keyof` keyword in TypeScript, along with practical examples.
+
+---
+
+## What is `keyof`?
+
+The `keyof` operator takes an object type and produces a union of its keys as string literal types.
+
+It helps in creating **type-safe** utilities and functions that operate on keys of objects.
+
+---
+
+## Basic Example
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+  location: string;
+}
+
+type PersonKeys = keyof Person; 
+// Equivalent to: "name" | "age" | "location"
+
+let key: PersonKeys;
+
+key = "name";     // valid
+key = "age";      // valid
+key = "location"; // valid
+// key = "email"; // Error: Type '"email"' is not assignable to type 'PersonKeys'
+```
+
+---
+
+## Using `keyof` in Functions
+
+You can constrain function parameters to only valid keys of a given type.
+
+```typescript
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+
+const person: Person = {
+  name: "Alice",
+  age: 30,
+  location: "Wonderland",
+};
+
+const name = getProperty(person, "name");     // Type: string
+const age = getProperty(person, "age");       // Type: number
+// const email = getProperty(person, "email"); // Error: Argument of type '"email"' is not assignable to parameter of type 'keyof Person'
+```
+
+---
+
+## Benefits of `keyof`
+
+- Provides **compile-time safety** for object keys.
+- Enables building **generic** and reusable utilities.
+- Helps avoid common bugs related to invalid property access.
+
+---
+
 
 
