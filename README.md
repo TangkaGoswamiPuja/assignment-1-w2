@@ -1,5 +1,5 @@
 
-# TypeScript Union and Intersection Types
+#  1. TypeScript Union and Intersection Types
 
 This README provides a brief explanation of **union** and **intersection** types in TypeScript, along with practical code examples.
 
